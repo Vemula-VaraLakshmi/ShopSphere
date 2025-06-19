@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -34,12 +33,12 @@ const Index = () => {
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
-    const cart = JSON.parse(localStorage.getItem('campusCart') || '[]');
+    const cart = JSON.parse(localStorage.getItem('shopSphereCart') || '[]');
     setCartCount(cart.reduce((total: number, item: any) => total + item.quantity, 0));
   }, []);
 
   const addToCart = (product: any) => {
-    const cart = JSON.parse(localStorage.getItem('campusCart') || '[]');
+    const cart = JSON.parse(localStorage.getItem('shopSphereCart') || '[]');
     const existingItem = cart.find((item: any) => item.id === product.id);
     
     if (existingItem) {
@@ -48,7 +47,7 @@ const Index = () => {
       cart.push({ ...product, quantity: 1 });
     }
     
-    localStorage.setItem('campusCart', JSON.stringify(cart));
+    localStorage.setItem('shopSphereCart', JSON.stringify(cart));
     setCartCount(cart.reduce((total: number, item: any) => total + item.quantity, 0));
   };
 
@@ -60,10 +59,10 @@ const Index = () => {
       <section className="relative py-20 px-4 text-center bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
-            Campus<span className="text-orange-400">Cart</span>
+            Shop<span className="text-orange-400">Sphere</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-            Your one-stop shop for everything you need to succeed in college life
+            Your ultimate online shopping destination for everything you need
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3">
@@ -86,22 +85,22 @@ const Index = () => {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ShoppingCart className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Student-Friendly Prices</h3>
-              <p className="text-gray-600">Affordable prices designed with student budgets in mind</p>
+              <h3 className="text-xl font-semibold mb-2">Great Prices</h3>
+              <p className="text-gray-600">Competitive prices on all your favorite products</p>
             </div>
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-orange-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Quality Products</h3>
-              <p className="text-gray-600">Carefully curated items to help you succeed academically</p>
+              <p className="text-gray-600">Carefully curated items from trusted brands</p>
             </div>
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ArrowRight className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Fast Delivery</h3>
-              <p className="text-gray-600">Quick shipping to get your essentials when you need them</p>
+              <p className="text-gray-600">Quick shipping to get your orders when you need them</p>
             </div>
           </div>
         </div>
@@ -160,8 +159,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-4">CampusCart</h3>
-          <p className="text-gray-400 mb-6">Making student life easier, one purchase at a time.</p>
+          <h3 className="text-2xl font-bold mb-4">ShopSphere</h3>
+          <p className="text-gray-400 mb-6">Your ultimate shopping destination, making life easier one purchase at a time.</p>
           <div className="flex justify-center gap-6">
             <Link to="/about" className="hover:text-orange-400 transition-colors">About</Link>
             <Link to="/contact" className="hover:text-orange-400 transition-colors">Contact</Link>

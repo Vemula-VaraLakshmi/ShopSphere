@@ -31,8 +31,8 @@ const Navigation = ({ cartCount = 0 }: NavigationProps) => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-blue-600">Campus</span>
-            <span className="text-2xl font-bold text-orange-500">Cart</span>
+            <span className="text-2xl font-bold text-blue-600">Shop</span>
+            <span className="text-2xl font-bold text-orange-500">Sphere</span>
           </Link>
 
           {/* Desktop Navigation */}

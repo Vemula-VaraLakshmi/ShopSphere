@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -11,13 +10,13 @@ const Cart = () => {
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
-    const cart = JSON.parse(localStorage.getItem('campusCart') || '[]');
+    const cart = JSON.parse(localStorage.getItem('shopSphereCart') || '[]');
     setCartItems(cart);
     setCartCount(cart.reduce((total: number, item: any) => total + item.quantity, 0));
   }, []);
 
   const updateCart = (updatedCart: any[]) => {
-    localStorage.setItem('campusCart', JSON.stringify(updatedCart));
+    localStorage.setItem('shopSphereCart', JSON.stringify(updatedCart));
     setCartItems(updatedCart);
     setCartCount(updatedCart.reduce((total: number, item: any) => total + item.quantity, 0));
   };
