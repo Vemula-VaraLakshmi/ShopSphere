@@ -22,7 +22,7 @@ const allProducts = [
     id: 2,
     name: "Wireless Earbuds",
     price: 49.99,
-    category: "gadgets",
+    category: "electronics",
     image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=600&h=600&fit=crop",
     rating: 4.9,
     description: "Crystal clear audio for your study sessions. These wireless earbuds feature noise cancellation, long battery life, and comfortable fit for extended use.",
@@ -33,7 +33,7 @@ const allProducts = [
     id: 3,
     name: "Campus Hoodie",
     price: 34.99,
-    category: "merchandise",
+    category: "clothing",
     image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&h=600&fit=crop",
     rating: 4.7,
     description: "Comfortable and stylish campus wear. Made from premium cotton blend for ultimate comfort and durability. Perfect for those chilly campus days.",
@@ -55,7 +55,7 @@ const allProducts = [
     id: 5,
     name: "Laptop Stand",
     price: 24.99,
-    category: "gadgets",
+    category: "electronics",
     image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=600&h=600&fit=crop",
     rating: 4.5,
     description: "Ergonomic laptop stand for better posture during long study sessions. Adjustable height and angle for optimal viewing.",
@@ -77,7 +77,7 @@ const allProducts = [
     id: 7,
     name: "University T-Shirt",
     price: 19.99,
-    category: "merchandise",
+    category: "clothing",
     image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop",
     rating: 4.4,
     description: "Show your school spirit with this comfortable tee. Made from soft cotton with a classic fit.",
@@ -94,6 +94,138 @@ const allProducts = [
     description: "Introduction to Psychology - Latest Edition. Comprehensive coverage of psychological principles and research methods.",
     features: ["Latest edition", "Case studies included", "Online study materials", "Expert authors"],
     inStock: true
+  },
+  {
+    id: 9,
+    name: "Programming Fundamentals",
+    price: 65.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=600&fit=crop",
+    rating: 4.9,
+    description: "Complete guide to programming fundamentals and algorithms. Perfect for beginners and intermediate programmers looking to strengthen their foundation.",
+    features: ["Beginner-friendly", "Practical examples", "Code snippets included", "Multiple programming languages"],
+    inStock: true
+  },
+  {
+    id: 10,
+    name: "Data Structures & Algorithms",
+    price: 79.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=600&fit=crop",
+    rating: 4.8,
+    description: "Master data structures and algorithms with practical examples. Essential for computer science students and software developers.",
+    features: ["Comprehensive coverage", "Visual diagrams", "Practice problems", "Interview preparation"],
+    inStock: true
+  },
+  {
+    id: 11,
+    name: "Web Development Bible",
+    price: 69.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=600&fit=crop",
+    rating: 4.7,
+    description: "Complete guide to modern web development technologies. Covers HTML, CSS, JavaScript, React, and more.",
+    features: ["Modern frameworks", "Responsive design", "Best practices", "Project-based learning"],
+    inStock: true
+  },
+  {
+    id: 12,
+    name: "Machine Learning Handbook",
+    price: 94.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=600&fit=crop",
+    rating: 4.6,
+    description: "Comprehensive guide to machine learning and AI concepts. From basic statistics to advanced neural networks.",
+    features: ["Theory and practice", "Python examples", "Real-world applications", "Latest research"],
+    inStock: true
+  },
+  {
+    id: 13,
+    name: "Database Design Principles",
+    price: 72.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=600&fit=crop",
+    rating: 4.5,
+    description: "Learn database design and optimization techniques. Covers SQL, NoSQL, and database management systems.",
+    features: ["SQL mastery", "Database optimization", "Performance tuning", "Industry standards"],
+    inStock: true
+  },
+  {
+    id: 14,
+    name: "Fiction Novel Collection",
+    price: 24.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=600&fit=crop",
+    rating: 4.8,
+    description: "Bestselling fiction novels bundle - 5 books included. A diverse collection of contemporary and classic literature.",
+    features: ["5 bestselling novels", "Various genres", "Award-winning authors", "Perfect for book clubs"],
+    inStock: true
+  },
+  {
+    id: 15,
+    name: "Business Management Guide",
+    price: 59.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop",
+    rating: 4.4,
+    description: "Essential business management strategies and principles. Learn to lead teams and grow organizations effectively.",
+    features: ["Leadership strategies", "Team management", "Strategic planning", "Case studies"],
+    inStock: true
+  },
+  {
+    id: 16,
+    name: "History of Science",
+    price: 45.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&h=600&fit=crop",
+    rating: 4.6,
+    description: "Journey through the evolution of scientific discoveries. From ancient civilizations to modern breakthroughs.",
+    features: ["Chronological timeline", "Scientific breakthroughs", "Historical context", "Illustrated content"],
+    inStock: true
+  },
+  {
+    id: 17,
+    name: "Creative Writing Workshop",
+    price: 38.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1516414447565-b14be0adf13e?w=600&h=600&fit=crop",
+    rating: 4.7,
+    description: "Develop your creative writing skills with practical exercises. Perfect for aspiring authors and storytellers.",
+    features: ["Writing exercises", "Genre exploration", "Character development", "Publishing tips"],
+    inStock: true
+  },
+  {
+    id: 18,
+    name: "Philosophy Essays",
+    price: 42.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=600&fit=crop",
+    rating: 4.5,
+    description: "Collection of thought-provoking philosophical essays. Explore fundamental questions about existence and meaning.",
+    features: ["Classical philosophy", "Modern thinkers", "Critical thinking", "Discussion questions"],
+    inStock: true
+  },
+  {
+    id: 19,
+    name: "Digital Marketing Strategy",
+    price: 55.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=600&fit=crop",
+    rating: 4.8,
+    description: "Master digital marketing in the modern era. Learn SEO, social media, content marketing, and analytics.",
+    features: ["SEO strategies", "Social media marketing", "Content creation", "Analytics tools"],
+    inStock: true
+  },
+  {
+    id: 20,
+    name: "Art History Masterpiece",
+    price: 67.99,
+    category: "books",
+    image: "https://images.unsplash.com/photo-1541963463532-d68292c34d19?w=600&h=600&fit=crop",
+    rating: 4.9,
+    description: "Explore the greatest art movements and masterpieces. Beautifully illustrated guide to world art history.",
+    features: ["High-quality reproductions", "Art movements", "Artist biographies", "Cultural context"],
+    inStock: true
   }
 ];
 
@@ -104,7 +236,7 @@ const Product = () => {
   const [product, setProduct] = useState<any>(null);
 
   useEffect(() => {
-    const cart = JSON.parse(localStorage.getItem('campusCart') || '[]');
+    const cart = JSON.parse(localStorage.getItem('shopSphereCart') || '[]');
     setCartCount(cart.reduce((total: number, item: any) => total + item.quantity, 0));
     
     const foundProduct = allProducts.find(p => p.id === parseInt(id || '0'));
@@ -114,7 +246,7 @@ const Product = () => {
   const addToCart = () => {
     if (!product) return;
     
-    const cart = JSON.parse(localStorage.getItem('campusCart') || '[]');
+    const cart = JSON.parse(localStorage.getItem('shopSphereCart') || '[]');
     const existingItem = cart.find((item: any) => item.id === product.id);
     
     if (existingItem) {
@@ -123,7 +255,7 @@ const Product = () => {
       cart.push({ ...product, quantity });
     }
     
-    localStorage.setItem('campusCart', JSON.stringify(cart));
+    localStorage.setItem('shopSphereCart', JSON.stringify(cart));
     setCartCount(cart.reduce((total: number, item: any) => total + item.quantity, 0));
     setQuantity(1);
   };
