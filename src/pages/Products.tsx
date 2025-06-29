@@ -1,202 +1,169 @@
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import Navigation from "@/components/Navigation";
-import { Star, ShoppingCart } from "lucide-react";
+import { Star, ShoppingCart, BookOpen, Percent } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 
 const allProducts = [
   {
     id: 1,
     name: "Premium Notebook Set",
     price: 15.99,
+    originalPrice: 19.99,
     category: "stationery",
     image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
     rating: 4.8,
-    description: "High-quality notebooks perfect for note-taking and studying"
+    description: "High-quality notebooks perfect for note-taking and studying",
+    isSecondHand: false,
+    academicYear: "all"
   },
   {
     id: 2,
     name: "Wireless Earbuds",
     price: 49.99,
+    originalPrice: 79.99,
     category: "electronics",
     image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&h=400&fit=crop",
     rating: 4.9,
-    description: "Crystal clear audio for your study sessions"
+    description: "Crystal clear audio for your study sessions",
+    isSecondHand: false,
+    academicYear: "all"
   },
   {
     id: 3,
     name: "Campus Hoodie",
     price: 34.99,
+    originalPrice: 44.99,
     category: "clothing",
     image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop",
     rating: 4.7,
-    description: "Comfortable and stylish campus wear"
+    description: "Comfortable and stylish campus wear",
+    isSecondHand: false,
+    academicYear: "all"
   },
   {
     id: 4,
     name: "Calculus Textbook",
-    price: 89.99,
+    price: 45.99,
+    originalPrice: 89.99,
     category: "books",
     image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop",
     rating: 4.6,
-    description: "Comprehensive calculus textbook for advanced mathematics"
+    description: "Comprehensive calculus textbook for advanced mathematics",
+    isSecondHand: true,
+    academicYear: "sophomore"
   },
   {
     id: 5,
     name: "Laptop Stand",
     price: 24.99,
+    originalPrice: 34.99,
     category: "electronics",
     image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop",
     rating: 4.5,
-    description: "Ergonomic laptop stand for better posture"
+    description: "Ergonomic laptop stand for better posture",
+    isSecondHand: false,
+    academicYear: "all"
   },
   {
     id: 6,
     name: "Highlighter Set",
     price: 8.99,
+    originalPrice: 12.99,
     category: "stationery",
     image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
     rating: 4.8,
-    description: "Bright and vibrant highlighters for studying"
+    description: "Bright and vibrant highlighters for studying",
+    isSecondHand: false,
+    academicYear: "all"
   },
   {
     id: 7,
     name: "University T-Shirt",
     price: 19.99,
+    originalPrice: 24.99,
     category: "clothing",
     image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop",
     rating: 4.4,
-    description: "Show your school spirit with this comfortable tee"
+    description: "Show your school spirit with this comfortable tee",
+    isSecondHand: false,
+    academicYear: "all"
   },
   {
     id: 8,
     name: "Psychology Textbook",
-    price: 75.99,
+    price: 38.99,
+    originalPrice: 75.99,
     category: "books",
     image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
     rating: 4.7,
-    description: "Introduction to Psychology - Latest Edition"
+    description: "Introduction to Psychology - Latest Edition",
+    isSecondHand: true,
+    academicYear: "freshman"
   },
   {
     id: 9,
-    name: "Programming Fundamentals",
-    price: 65.99,
-    category: "books",
+    name: "Freshman Starter Kit",
+    price: 89.99,
+    originalPrice: 120.00,
+    category: "kits",
     image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=400&fit=crop",
     rating: 4.9,
-    description: "Complete guide to programming fundamentals and algorithms"
+    description: "Complete bundle: notebooks, pens, planner, and dorm essentials",
+    isSecondHand: false,
+    academicYear: "freshman"
   },
   {
     id: 10,
-    name: "Data Structures & Algorithms",
-    price: 79.99,
-    category: "books",
+    name: "Study Planner 2024",
+    price: 18.99,
+    originalPrice: 24.99,
+    category: "stationery",
     image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=400&fit=crop",
     rating: 4.8,
-    description: "Master data structures and algorithms with practical examples"
+    description: "Academic year planner with productivity tracking",
+    isSecondHand: false,
+    academicYear: "all"
   },
   {
     id: 11,
-    name: "Web Development Bible",
-    price: 69.99,
-    category: "books",
+    name: "Computer Science Kit",
+    price: 159.99,
+    originalPrice: 199.99,
+    category: "kits",
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400&h=400&fit=crop",
     rating: 4.7,
-    description: "Complete guide to modern web development technologies"
+    description: "Programming books, laptop accessories, and coding essentials",
+    isSecondHand: false,
+    academicYear: "sophomore"
   },
   {
     id: 12,
-    name: "Machine Learning Handbook",
-    price: 94.99,
+    name: "Biology Lab Manual (Used)",
+    price: 25.99,
+    originalPrice: 52.99,
     category: "books",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop",
     rating: 4.6,
-    description: "Comprehensive guide to machine learning and AI concepts"
-  },
-  {
-    id: 13,
-    name: "Database Design Principles",
-    price: 72.99,
-    category: "books",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop",
-    rating: 4.5,
-    description: "Learn database design and optimization techniques"
-  },
-  {
-    id: 14,
-    name: "Fiction Novel Collection",
-    price: 24.99,
-    category: "books",
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=400&fit=crop",
-    rating: 4.8,
-    description: "Bestselling fiction novels bundle - 5 books included"
-  },
-  {
-    id: 15,
-    name: "Business Management Guide",
-    price: 59.99,
-    category: "books",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    rating: 4.4,
-    description: "Essential business management strategies and principles"
-  },
-  {
-    id: 16,
-    name: "History of Science",
-    price: 45.99,
-    category: "books",
-    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop",
-    rating: 4.6,
-    description: "Journey through the evolution of scientific discoveries"
-  },
-  {
-    id: 17,
-    name: "Creative Writing Workshop",
-    price: 38.99,
-    category: "books",
-    image: "https://images.unsplash.com/photo-1516414447565-b14be0adf13e?w=400&h=400&fit=crop",
-    rating: 4.7,
-    description: "Develop your creative writing skills with practical exercises"
-  },
-  {
-    id: 18,
-    name: "Philosophy Essays",
-    price: 42.99,
-    category: "books",
-    image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400&h=400&fit=crop",
-    rating: 4.5,
-    description: "Collection of thought-provoking philosophical essays"
-  },
-  {
-    id: 19,
-    name: "Digital Marketing Strategy",
-    price: 55.99,
-    category: "books",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=400&h=400&fit=crop",
-    rating: 4.8,
-    description: "Master digital marketing in the modern era"
-  },
-  {
-    id: 20,
-    name: "Art History Masterpiece",
-    price: 67.99,
-    category: "books",
-    image: "https://images.unsplash.com/photo-1541963463532-d68292c34d19?w=400&h=400&fit=crop",
-    rating: 4.9,
-    description: "Explore the greatest art movements and masterpieces"
+    description: "Gently used biology lab manual with all pages intact",
+    isSecondHand: true,
+    academicYear: "sophomore"
   }
 ];
 
 const Products = () => {
+  const [searchParams] = useSearchParams();
   const [cartCount, setCartCount] = useState(0);
   const [products, setProducts] = useState(allProducts);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || "all");
   const [sortBy, setSortBy] = useState("name");
+  const [showSecondHand, setShowSecondHand] = useState(false);
 
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem('shopSphereCart') || '[]');
@@ -218,6 +185,11 @@ const Products = () => {
       filtered = filtered.filter(product => product.category === selectedCategory);
     }
 
+    // Filter by second-hand
+    if (showSecondHand) {
+      filtered = filtered.filter(product => product.isSecondHand);
+    }
+
     // Sort products
     filtered.sort((a, b) => {
       switch (sortBy) {
@@ -233,7 +205,7 @@ const Products = () => {
     });
 
     setProducts(filtered);
-  }, [searchTerm, selectedCategory, sortBy]);
+  }, [searchTerm, selectedCategory, sortBy, showSecondHand]);
 
   const addToCart = (product: any) => {
     const cart = JSON.parse(localStorage.getItem('shopSphereCart') || '[]');
@@ -254,7 +226,13 @@ const Products = () => {
       <Navigation cartCount={cartCount} />
       
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-8">All Products</h1>
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-3xl font-bold text-gray-800">Student Store</h1>
+          <div className="flex items-center gap-2">
+            <BookOpen className="w-5 h-5 text-blue-600" />
+            <span className="text-sm text-gray-600">Verified Student Prices</span>
+          </div>
+        </div>
         
         {/* Filters */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">
@@ -271,10 +249,11 @@ const Products = () => {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All Categories</SelectItem>
-              <SelectItem value="books">Books</SelectItem>
+              <SelectItem value="books">Books & Textbooks</SelectItem>
               <SelectItem value="stationery">Stationery</SelectItem>
-              <SelectItem value="electronics">Electronics</SelectItem>
+              <SelectItem value="electronics">Tech & Electronics</SelectItem>
               <SelectItem value="clothing">Clothing</SelectItem>
+              <SelectItem value="kits">Curated Kits</SelectItem>
             </SelectContent>
           </Select>
           
@@ -289,6 +268,15 @@ const Products = () => {
               <SelectItem value="rating">Rating</SelectItem>
             </SelectContent>
           </Select>
+
+          <Button
+            variant={showSecondHand ? "default" : "outline"}
+            onClick={() => setShowSecondHand(!showSecondHand)}
+            className="flex items-center gap-2"
+          >
+            <BookOpen className="w-4 h-4" />
+            Second-Hand Only
+          </Button>
         </div>
 
         {/* Products Grid */}
@@ -297,12 +285,22 @@ const Products = () => {
             <Card key={product.id} className="group hover:shadow-lg transition-all duration-300">
               <CardContent className="p-4">
                 <Link to={`/product/${product.id}`}>
-                  <div className="aspect-square mb-4 overflow-hidden rounded-lg bg-gray-100">
+                  <div className="aspect-square mb-4 overflow-hidden rounded-lg bg-gray-100 relative">
                     <img 
                       src={product.image} 
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
+                    {product.isSecondHand && (
+                      <Badge className="absolute top-2 left-2 bg-green-500">
+                        Second-Hand
+                      </Badge>
+                    )}
+                    {product.category === 'kits' && (
+                      <Badge className="absolute top-2 right-2 bg-purple-500">
+                        Kit
+                      </Badge>
+                    )}
                   </div>
                 </Link>
                 
@@ -325,7 +323,14 @@ const Products = () => {
                 <p className="text-gray-600 text-sm mb-3 line-clamp-2">{product.description}</p>
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-xl font-bold text-blue-600">${product.price}</span>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-gray-400 line-through">${product.originalPrice}</span>
+                      <Percent className="w-3 h-3 text-green-600" />
+                    </div>
+                    <span className="text-xl font-bold text-blue-600">${product.price}</span>
+                    <div className="text-xs text-green-600 font-medium">Student Price</div>
+                  </div>
                   <Button 
                     onClick={() => addToCart(product)}
                     size="sm"

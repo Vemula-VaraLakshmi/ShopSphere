@@ -1,7 +1,8 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
-import { ShoppingCart, Star, ArrowRight } from "lucide-react";
+import { ShoppingCart, Star, ArrowRight, BookOpen, Users, Percent } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -62,7 +63,7 @@ const Index = () => {
             Shop<span className="text-orange-400">Sphere</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-            Your ultimate online shopping destination for everything you need
+            Your ultimate student shopping destination - from dorm essentials to academic success tools
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3">
@@ -77,31 +78,102 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Key Features Section */}
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+            Made for Students
+          </h2>
+          <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <ShoppingCart className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Great Prices</h3>
-              <p className="text-gray-600">Competitive prices on all your favorite products</p>
-            </div>
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="w-8 h-8 text-orange-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Quality Products</h3>
-              <p className="text-gray-600">Carefully curated items from trusted brands</p>
+              <h3 className="text-xl font-semibold mb-2">Curated Kits</h3>
+              <p className="text-gray-600">Pre-made bundles for each academic year and major</p>
             </div>
             <div className="text-center p-6">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <ArrowRight className="w-8 h-8 text-green-600" />
+                <BookOpen className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Fast Delivery</h3>
-              <p className="text-gray-600">Quick shipping to get your orders when you need them</p>
+              <h3 className="text-xl font-semibold mb-2">Book Exchange</h3>
+              <p className="text-gray-600">Buy and sell second-hand textbooks at great prices</p>
             </div>
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Percent className="w-8 h-8 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Student Discounts</h3>
+              <p className="text-gray-600">Verified student pricing on all products</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Users className="w-8 h-8 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Productivity Tools</h3>
+              <p className="text-gray-600">Planners and tools to boost your academic success</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Categories */}
+      <section className="py-16 px-4 bg-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+            Shop by Category
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <CardContent className="p-6">
+                <div className="aspect-square mb-4 overflow-hidden rounded-lg bg-blue-50">
+                  <img 
+                    src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop" 
+                    alt="Stationery"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Stationery & Supplies</h3>
+                <p className="text-gray-600 mb-4">Notebooks, pens, highlighters, and study essentials</p>
+                <Link to="/products?category=stationery">
+                  <Button className="w-full">Shop Stationery</Button>
+                </Link>
+              </CardContent>
+            </Card>
+            
+            <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <CardContent className="p-6">
+                <div className="aspect-square mb-4 overflow-hidden rounded-lg bg-purple-50">
+                  <img 
+                    src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&h=400&fit=crop" 
+                    alt="Tech"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Tech & Electronics</h3>
+                <p className="text-gray-600 mb-4">Headphones, laptop accessories, and study tech</p>
+                <Link to="/products?category=electronics">
+                  <Button className="w-full">Shop Tech</Button>
+                </Link>
+              </CardContent>
+            </Card>
+            
+            <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <CardContent className="p-6">
+                <div className="aspect-square mb-4 overflow-hidden rounded-lg bg-green-50">
+                  <img 
+                    src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop" 
+                    alt="Books"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">Books & Textbooks</h3>
+                <p className="text-gray-600 mb-4">New and second-hand academic books</p>
+                <Link to="/products?category=books">
+                  <Button className="w-full">Shop Books</Button>
+                </Link>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -110,7 +182,7 @@ const Index = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
-            Featured Products
+            Student Favorites
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {featuredProducts.map((product) => (
@@ -134,7 +206,11 @@ const Index = () => {
                   </div>
                   <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-blue-600">${product.price}</span>
+                    <div>
+                      <span className="text-lg text-gray-400 line-through">${(product.price * 1.2).toFixed(2)}</span>
+                      <span className="text-2xl font-bold text-blue-600 ml-2">${product.price}</span>
+                      <div className="text-sm text-green-600 font-medium">Student Price</div>
+                    </div>
                     <Button 
                       onClick={() => addToCart(product)}
                       className="bg-orange-500 hover:bg-orange-600 text-white"
@@ -160,7 +236,7 @@ const Index = () => {
       <footer className="bg-gray-800 text-white py-12 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h3 className="text-2xl font-bold mb-4">ShopSphere</h3>
-          <p className="text-gray-400 mb-6">Your ultimate shopping destination, making life easier one purchase at a time.</p>
+          <p className="text-gray-400 mb-6">Your ultimate student shopping destination, making college life easier one purchase at a time.</p>
           <div className="flex justify-center gap-6">
             <Link to="/about" className="hover:text-orange-400 transition-colors">About</Link>
             <Link to="/contact" className="hover:text-orange-400 transition-colors">Contact</Link>
