@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Navigation from "@/components/Navigation";
@@ -153,6 +152,222 @@ const allProducts = [
     description: "Gently used biology lab manual with all pages intact",
     isSecondHand: true,
     academicYear: "sophomore"
+  },
+  {
+    id: 13,
+    name: "Mechanical Pencils Set",
+    price: 12.99,
+    originalPrice: 18.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=400&h=400&fit=crop",
+    rating: 4.7,
+    description: "Professional mechanical pencils with extra lead refills",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 14,
+    name: "Colored Pen Set",
+    price: 14.99,
+    originalPrice: 22.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
+    rating: 4.6,
+    description: "Set of 12 colored pens for note-taking and organization",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 15,
+    name: "Spiral Notebooks (5-Pack)",
+    price: 19.99,
+    originalPrice: 29.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
+    rating: 4.8,
+    description: "College-ruled spiral notebooks perfect for every subject",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 16,
+    name: "Sticky Notes Mega Pack",
+    price: 11.99,
+    originalPrice: 16.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=400&fit=crop",
+    rating: 4.9,
+    description: "Assorted sticky notes in multiple sizes and colors",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 17,
+    name: "Index Cards (500 Pack)",
+    price: 7.99,
+    originalPrice: 12.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
+    rating: 4.5,
+    description: "Blank index cards for flashcards and study notes",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 18,
+    name: "Desk Organizer",
+    price: 22.99,
+    originalPrice: 32.99,
+    category: "dorm",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=400&fit=crop",
+    rating: 4.6,
+    description: "Multi-compartment desk organizer for pens, pencils, and supplies",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 19,
+    name: "Bedside Lamp",
+    price: 28.99,
+    originalPrice: 39.99,
+    category: "dorm",
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=400&fit=crop",
+    rating: 4.7,
+    description: "Adjustable LED bedside lamp for late-night studying",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 20,
+    name: "Storage Bins (3-Pack)",
+    price: 35.99,
+    originalPrice: 49.99,
+    category: "dorm",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=400&fit=crop",
+    rating: 4.4,
+    description: "Stackable storage bins for dorm room organization",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 21,
+    name: "Erasers & Correction Kit",
+    price: 9.99,
+    originalPrice: 14.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=400&h=400&fit=crop",
+    rating: 4.5,
+    description: "Assorted erasers and correction supplies for clean notes",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 22,
+    name: "Graphing Calculator",
+    price: 89.99,
+    originalPrice: 129.99,
+    category: "electronics",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop",
+    rating: 4.8,
+    description: "Scientific graphing calculator for math and science courses",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 23,
+    name: "Composition Books (10-Pack)",
+    price: 24.99,
+    originalPrice: 34.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
+    rating: 4.6,
+    description: "Wide-ruled composition books for extensive note-taking",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 24,
+    name: "Ruler & Protractor Set",
+    price: 6.99,
+    originalPrice: 10.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=400&h=400&fit=crop",
+    rating: 4.4,
+    description: "Essential geometry tools for math and engineering courses",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 25,
+    name: "Binder with Dividers",
+    price: 16.99,
+    originalPrice: 24.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
+    rating: 4.7,
+    description: "3-ring binder with subject dividers for organized notes",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 26,
+    name: "Loose-leaf Paper (500 Sheets)",
+    price: 13.99,
+    originalPrice: 19.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=400&fit=crop",
+    rating: 4.5,
+    description: "College-ruled loose-leaf paper for binders",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 27,
+    name: "Pencil Case",
+    price: 12.99,
+    originalPrice: 18.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=400&h=400&fit=crop",
+    rating: 4.6,
+    description: "Durable pencil case with multiple compartments",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 28,
+    name: "Mini Stapler & Staples",
+    price: 8.99,
+    originalPrice: 13.99,
+    category: "stationery",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=400&fit=crop",
+    rating: 4.3,
+    description: "Compact stapler with extra staples for assignments",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 29,
+    name: "Dorm Room Rug",
+    price: 45.99,
+    originalPrice: 64.99,
+    category: "dorm",
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=400&h=400&fit=crop",
+    rating: 4.5,
+    description: "Soft area rug to make your dorm room feel more like home",
+    isSecondHand: false,
+    academicYear: "all"
+  },
+  {
+    id: 30,
+    name: "Backpack - Student Edition",
+    price: 39.99,
+    originalPrice: 59.99,
+    category: "accessories",
+    image: "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?w=400&h=400&fit=crop",
+    rating: 4.8,
+    description: "Durable backpack with laptop compartment and multiple pockets",
+    isSecondHand: false,
+    academicYear: "all"
   }
 ];
 
@@ -253,6 +468,8 @@ const Products = () => {
               <SelectItem value="stationery">Stationery</SelectItem>
               <SelectItem value="electronics">Tech & Electronics</SelectItem>
               <SelectItem value="clothing">Clothing</SelectItem>
+              <SelectItem value="dorm">Dorm Essentials</SelectItem>
+              <SelectItem value="accessories">Accessories</SelectItem>
               <SelectItem value="kits">Curated Kits</SelectItem>
             </SelectContent>
           </Select>
